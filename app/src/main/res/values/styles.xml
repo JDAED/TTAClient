@@ -1,0 +1,29 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+
+        <item name="colorPrimary">@android:color/holo_blue_bright</item>
+        <item name="colorPrimaryDark">@android:color/holo_blue_dark</item>
+        <item name="colorAccent">@android:color/holo_green_dark</item>
+        <item name="actionBarSize">30sp</item>
+        <item name="android:actionBarSize">30sp</item>
+
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textColor">@android:color/holo_blue_bright</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Widget.20210908.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Widget.20210908.AppWidget.InnerView" parent="android:Widget">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+</resources>
