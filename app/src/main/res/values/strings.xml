@@ -52,22 +52,8 @@
         <item>16; 1.326934; 103.802387</item>
     </string-array>
     <string-array name="building_name_list">
-        <item>Clock Tower</item>
-        <item>Block A</item>
-        <item>Block B</item>
-        <item>Block C</item>
-        <item>Block D</item>
-        <item>Basketball courts</item>
-        <item>Canteen</item>
-        <item>Computer Lab</item>
-        <item>Drama Centre</item>
-        <item>EP3 Shed</item>
-        <item>Kuo Chuan House</item>
-        <item>LSS Lab</item>
-        <item>Multi-Storey and Open-Air Carpark</item>
-        <item>Salt Centre</item>
-        <item>SRC</item>
-        <item>Terraces and Field</item>
-        <item>思源坊</item>
+        <item>No Potential Exposure</item>
+        <item>Exposure Alert</item>
+
     </string-array>
 </resources>

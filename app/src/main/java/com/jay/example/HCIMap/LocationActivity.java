@@ -161,7 +161,7 @@ public class LocationActivity extends AppCompatActivity {
 
         String[] builingDataArray = getResources().getStringArray(R.array.building_data_list);
         buildingDataCounter = builingDataArray.length;
-        for (int i = 0; i < buildingDataCounter; i++) {
+/*-=        for (int i = 0; i < buildingDataCounter; i++) {
             String[] parts = builingDataArray[i].split(";");
             buildingIndex[i] = Integer.parseInt(parts[0].trim());
 
@@ -178,7 +178,7 @@ public class LocationActivity extends AppCompatActivity {
             buildingCornerC[i].x = Float.parseFloat(parts[6].trim());
             buildingCornerD[i].y = Float.parseFloat(parts[7].trim());
             buildingCornerD[i].x = Float.parseFloat(parts[8].trim());
-        }
+        } */
 
         Point size = new Point();
         getWindowManager().getDefaultDisplay().getSize(size);
@@ -191,12 +191,12 @@ public class LocationActivity extends AppCompatActivity {
 
         imageHciMap = findViewById(R.id.imageHciMap);
         imageHciMap.getViewTreeObserver().addOnGlobalLayoutListener(new MyGlobalListenerClass());
-
+/*
         buildingButtonAnimation.setDuration(500);
         buildingButtonAnimation.setStartOffset(20);
         buildingButtonAnimation.setRepeatMode(Animation.REVERSE);
         buildingButtonAnimation.setRepeatCount(Animation.INFINITE);
-
+*/
         buildingNameAnimation.setDuration(500);
         buildingNameAnimation.setStartOffset(20);
         buildingNameAnimation.setRepeatMode(Animation.REVERSE);
@@ -301,10 +301,32 @@ public class LocationActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.app_menu, menu);
 
         appMenu = menu;
+        MenuItem item = menu.findItem(R.id.spinner);
+        Spinner spinner = (Spinner) item.getActionView();
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.building_name_list, R.layout.app_menu);
+
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                buildingIndexSelected = position;
+                showBuilding(buildingIndexSelected);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                buildingIndexSelected = -1;
+                showBuilding(buildingIndexSelected);
+            }
+        });
 
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -339,9 +361,13 @@ public class LocationActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-//        menu.findItem(R.id.icon_search).setEnabled(false);
+        menu.findItem(R.id.icon_search).setEnabled(false);
+
+        Spinner spinner = (Spinner) appMenu.findItem(R.id.spinner).getActionView();
+        spinner.setEnabled(mapScaleFactor == (float) 1.0);
 
         return super.onPrepareOptionsMenu(menu);
     }
@@ -502,7 +528,7 @@ public class LocationActivity extends AppCompatActivity {
             buildingName.setText(buildingNameArray[i_buildingIndex]);
 
             buildingName.startAnimation(buildingNameAnimation);
-            buildingButton.startAnimation(buildingButtonAnimation);
+//            buildingButton.startAnimation(buildingButtonAnimation);
             buildingShown = true;
             if (i_buildingIndex == buildingPeopleReached && i_buildingIndex != buildingReminding) {
                 reminder(i_buildingIndex);
@@ -510,7 +536,7 @@ public class LocationActivity extends AppCompatActivity {
                 buildingReminding = -1;
             }
         } else {
-            buildingButtonAnimation.cancel();
+//            buildingButtonAnimation.cancel();
             buildingNameAnimation.cancel();
             buildingShown = false;
             buildingReminding = -1;

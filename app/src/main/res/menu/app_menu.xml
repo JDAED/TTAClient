@@ -8,10 +8,20 @@
         android:title=""
         app:showAsAction="always" />
 
+
     <item
         android:id="@+id/icon_search"
         android:icon="@drawable/ic_search"
         android:title=""
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/spinner"
+        android:background="#000"
+        android:icon="@drawable/ic_search"
+        android:textSize="20sp"
+        android:title="ActionBar Spinner"
+        app:actionViewClass="android.widget.Spinner"
         app:showAsAction="always" />
 
 </menu>
