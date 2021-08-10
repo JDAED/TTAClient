@@ -473,16 +473,18 @@ public class LocationActivity extends AppCompatActivity {
     }
 
     private void showPeopleRoute() {
-        Paint paint = new Paint();
+        if (totalLocation >= 2) {
+            Paint paint = new Paint();
 
-        int i;
-        paint.setColor(Color.BLACK);
-        Point firstPoint = locationToScreen(locationArray[0]);
-        Point secondPoint;
-       for (i = 1; i < totalLocation; i++) {
-           secondPoint = locationToScreen(locationArray[i]);
-           canvas.drawLine(firstPoint.x, firstPoint.y, secondPoint.x, secondPoint.y, paint);
-           firstPoint = secondPoint;
+            int i;
+            paint.setColor(Color.BLACK);
+            Point firstPoint = locationToScreen(locationArray[0]);
+            Point secondPoint;
+            for (i = 1; i < totalLocation; i++) {
+                secondPoint = locationToScreen(locationArray[i]);
+                canvas.drawLine(firstPoint.x, firstPoint.y, secondPoint.x, secondPoint.y, paint);
+                firstPoint = secondPoint;
+            }
         }
     }
 
