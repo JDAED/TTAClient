@@ -11,10 +11,10 @@ Project members are Alrik, Xuyuan, Jingda, Cheeheng
 > https://github.com/txuyuan/TTALink
 > 
 > Module managed by Xuyuan (txuyuan)
->
+> 
 
 ## TTAClient
-> Android-based client for TTA system. Includes warnings for potentially found matches and a map displaying available location history
+> Android-based client for TTA system | Warnings for potentially found matches | Recording & Displaying of location history
 > 
 > https://github.com/JDAED/TTAClient
 > 
